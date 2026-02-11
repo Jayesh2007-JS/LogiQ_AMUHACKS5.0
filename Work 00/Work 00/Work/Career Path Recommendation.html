@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+    <title>Career Path Recommendations - SkillBridge AI</title>
+    <link rel="stylesheet" href="CareerPathRecommendation.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .top-nav-bar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-nav-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .top-nav-bar .back-link {
+            color: #667eea;
+        }
+        .top-nav-bar .home-link {
+            color: #6b7280;
+        }
+        .top-nav-bar a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav-bar">
+        <a href="skillbridge-homepage.html" class="logo-link" style="text-decoration: none; color: #667eea; font-weight: 700; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-graduation-cap"></i>
+            <span>SkillBridge-AI</span>
+        </a>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="features.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Features</span>
+            </a>
+            <a href="skillbridge-homepage.html" class="home-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Career Path Recommendations</h1>
+            <p>Discover your ideal career direction through our intelligent assessment</p>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Question 1 of 20</div>
+        </div>
+
+        <!-- Assessment Section -->
+        <div class="assessment-section" id="assessmentSection">
+            <!-- Questions will be dynamically inserted here -->
+            <div class="question-card" id="questionCard">
+                <div class="question-number" id="questionNumber">Question 1</div>
+                <h2 class="question-text" id="questionText"></h2>
+                <div class="options-container" id="optionsContainer"></div>
+                
+                <div class="navigation-buttons">
+                    <button type="button" class="btn btn-secondary" id="prevQuestionBtn" style="display: none;">Previous</button>
+                    <button type="button" class="btn btn-primary" id="nextQuestionBtn" disabled>Next Question</button>
+                    <button type="button" class="btn btn-primary" id="finishBtn" style="display: none;">Get My Recommendations</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section (Hidden Initially) -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <!-- Score Visualization -->
+            <div class="score-visualization">
+                <h2>Your Career Profile</h2>
+                <div class="chart-container">
+                    <canvas id="profileChart" width="400" height="400"></canvas>
+                </div>
+                <div class="score-breakdown">
+                    <div class="score-item tech-score">
+                        <div class="score-label">Technical Orientation</div>
+                        <div class="score-value" id="techPercentage">0%</div>
+                    </div>
+                    <div class="score-item mgmt-score">
+                        <div class="score-label">Management Orientation</div>
+                        <div class="score-value" id="mgmtPercentage">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Classification -->
+            <div class="classification-card" id="classificationCard">
+                <h2>Your Career Profile</h2>
+                <div class="profile-badge" id="profileBadge"></div>
+                <p class="profile-description" id="profileDescription"></p>
+            </div>
+
+            <!-- Recommended Roles -->
+            <div class="recommendations-container">
+                <h2>Recommended Career Paths</h2>
+                <div class="roles-grid" id="rolesGrid"></div>
+            </div>
+
+            <!-- Detailed Explanation -->
+            <div class="explanation-card">
+                <h3>📊 Why This Recommendation?</h3>
+                <div id="explanationText"></div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="result-actions">
+                <button class="btn btn-secondary" id="retakeAssessmentBtn">Retake Assessment</button>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <footer class="disclaimer">
+            <p>This career recommendation is based on your preferences and responses. It provides guidance to help you explore suitable career paths in technical and management domains.</p>
+        </footer>
+    </div>
+
+    <script src="security.js"></script>
+    <script src="CareerPathRecommendation.js"></script>
+</body>
+</html>

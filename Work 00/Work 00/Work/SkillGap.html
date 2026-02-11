@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+    <title>Skill Gap Assessment - SkillBridge AI</title>
+    <link rel="stylesheet" href="SkillGap.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .top-nav-bar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-nav-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .top-nav-bar .back-link {
+            color: #667eea;
+        }
+        .top-nav-bar .home-link {
+            color: #6b7280;
+        }
+        .top-nav-bar a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav-bar">
+        <a href="skillbridge-homepage.html" class="logo-link" style="text-decoration: none; color: #667eea; font-weight: 700; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-graduation-cap"></i>
+            <span>SkillBridge-AI</span>
+        </a>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="features.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Features</span>
+            </a>
+            <a href="skillbridge-homepage.html" class="home-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="page-header">
+                <h1>Skill Gap Assessment</h1>
+                <div class="intro-message">
+                    <p>
+                        This assessment is designed to evaluate your current skills, strengths, and interests 
+                        in relation to industry expectations. By answering a set of structured questions, you 
+                        will receive a personalized analysis highlighting your technical and managerial skill gaps, 
+                        along with recommended learning paths to help you transition effectively from academics to 
+                        a professional career.
+                    </p>
+                    <p class="highlight">
+                        <i class="fas fa-info-circle"></i>
+                        Please answer honestly. There are no right or wrong answers—only insights that will help you grow.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span>Profession</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span>Skills</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span>Experience</span>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-circle">4</div>
+                        <span>Results</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assessment Form -->
+            <div class="assessment-container">
+                <!-- Section 1: Profession Selection -->
+                <section class="section active" id="section1">
+                    <div class="section-header">
+                        <h2>Select Your Target Profession</h2>
+                        <p>Choose the career path you're aiming for</p>
+                    </div>
+
+                    <div class="profession-categories">
+                        <div class="category">
+                            <h3><i class="fas fa-code"></i> Technical Professions</h3>
+                            <div class="profession-grid">
+                                <div class="profession-card" data-profession="Software Developer">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <span>Software Developer</span>
+                                </div>
+                                <div class="profession-card" data-profession="Data Analyst">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Data Analyst / Data Scientist</span>
+                                </div>
+                                <div class="profession-card" data-profession="AI/ML Engineer">
+                                    <i class="fas fa-brain"></i>
+                                    <span>AI / ML Engineer</span>
+                                </div>
+                                <div class="profession-card" data-profession="Web Developer">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Web Developer</span>
+                                </div>
+                                <div class="profession-card" data-profession="Cybersecurity Analyst">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Cybersecurity Analyst</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="category">
+                            <h3><i class="fas fa-briefcase"></i> Management Professions</h3>
+                            <div class="profession-grid">
+                                <div class="profession-card" data-profession="Product Manager">
+                                    <i class="fas fa-box"></i>
+                                    <span>Product Manager</span>
+                                </div>
+                                <div class="profession-card" data-profession="Project Manager">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>Project Manager</span>
+                                </div>
+                                <div class="profession-card" data-profession="Business Analyst">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span>Business Analyst</span>
+                                </div>
+                                <div class="profession-card" data-profession="Operations Manager">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Operations Manager</span>
+                                </div>
+                                <div class="profession-card" data-profession="Management Consultant">
+                                    <i class="fas fa-user-tie"></i>
+                                    <span>Management Consultant</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-actions">
+                        <button class="btn btn-primary" id="nextBtn1" disabled>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Section 2: Current Skills Assessment -->
+                <section class="section" id="section2">
+                    <div class="section-header">
+                        <h2>Current Skills Assessment</h2>
+                        <p>Select all skills you currently possess</p>
+                    </div>
+
+                    <div class="skills-container" id="skillsContainer">
+                        <!-- Skills will be dynamically loaded based on profession -->
+                    </div>
+
+                    <div class="section-actions">
+                        <button class="btn btn-secondary" id="prevBtn2">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button class="btn btn-primary" id="nextBtn2">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Section 3: Experience Level -->
+                <section class="section" id="section3">
+                    <div class="section-header">
+                        <h2>Experience Level</h2>
+                        <p>Tell us about your professional experience</p>
+                    </div>
+
+                    <div class="experience-options">
+                        <div class="experience-card" data-experience="No experience">
+                            <i class="fas fa-user-graduate"></i>
+                            <h4>No Experience</h4>
+                            <p>Student / Fresher</p>
+                        </div>
+                        <div class="experience-card" data-experience="Internship">
+                            <i class="fas fa-user-clock"></i>
+                            <h4>Internship Experience</h4>
+                            <p>1-6 months internship</p>
+                        </div>
+                        <div class="experience-card" data-experience="Project-based">
+                            <i class="fas fa-project-diagram"></i>
+                            <h4>Project-Based Experience</h4>
+                            <p>Academic or personal projects</p>
+                        </div>
+                        <div class="experience-card" data-experience="Work experience">
+                            <i class="fas fa-briefcase"></i>
+                            <h4>Work Experience</h4>
+                            <p>Professional employment</p>
+                        </div>
+                    </div>
+
+                    <div class="years-input" id="yearsInput" style="display: none;">
+                        <label for="yearsExperience">Years of Experience:</label>
+                        <input type="number" id="yearsExperience" min="0" max="20" placeholder="Enter years">
+                    </div>
+
+                    <div class="section-actions">
+                        <button class="btn btn-secondary" id="prevBtn3">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button class="btn btn-primary" id="analyzeBtn" disabled>
+                            Analyze <i class="fas fa-chart-bar"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Section 4: Results -->
+                <section class="section" id="section4">
+                    <div class="results-container" id="resultsContainer">
+                        <div class="loading-animation" id="loadingAnimation">
+                            <div class="spinner"></div>
+                            <p>Analyzing your skills and generating personalized recommendations...</p>
+                        </div>
+
+                        <div class="results-content" id="resultsContent" style="display: none;">
+                            <!-- Summary Cards -->
+                            <div class="summary-cards">
+                                <div class="summary-card">
+                                    <div class="card-icon" style="background: linear-gradient(135deg, #10B981, #06B6D4);">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 id="skillCoverage">0%</h3>
+                                        <p>Skill Coverage</p>
+                                    </div>
+                                </div>
+                                <div class="summary-card">
+                                    <div class="card-icon" style="background: linear-gradient(135deg, #F59E0B, #EF4444);">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 id="skillGap">0%</h3>
+                                        <p>Skill Gap</p>
+                                    </div>
+                                </div>
+                                <div class="summary-card">
+                                    <div class="card-icon" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 id="skillsToLearn">0</h3>
+                                        <p>Skills to Learn</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Skill Gap Details -->
+                            <div class="gap-analysis">
+                                <h2><i class="fas fa-search"></i> Identified Skill Gaps</h2>
+                                <div id="gapsList"></div>
+                            </div>
+
+                            <!-- Learning Recommendations -->
+                            <div class="recommendations">
+                                <h2><i class="fas fa-book"></i> Learning Recommendations</h2>
+                                <div id="recommendationsList"></div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="results-actions">
+                                <button class="btn btn-primary" id="downloadBtn">
+                                    <i class="fas fa-download"></i> Download Report
+                                </button>
+                                <button class="btn btn-secondary" id="retakeBtn">
+                                    <i class="fas fa-redo"></i> Retake Assessment
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SkillBridge AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="security.js"></script>
+    <script src="SkillGap.js"></script>
+</body>
+</html>

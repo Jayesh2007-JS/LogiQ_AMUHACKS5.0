@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+    <title>Personalized Learning Roadmap - SkillBridge AI</title>
+    <link rel="stylesheet" href="Roadmap.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .top-nav-bar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-nav-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .top-nav-bar .back-link {
+            color: #667eea;
+        }
+        .top-nav-bar .home-link {
+            color: #6b7280;
+        }
+        .top-nav-bar a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav-bar">
+        <a href="skillbridge-homepage.html" class="logo-link" style="text-decoration: none; color: #667eea; font-weight: 700; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-graduation-cap"></i>
+            <span>SkillBridge-AI</span>
+        </a>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="features.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Features</span>
+            </a>
+            <a href="skillbridge-homepage.html" class="home-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Personalized Learning Roadmap</h1>
+                <p class="subtitle">Your AI-powered career transition guide with phased growth and intelligent personalization</p>
+            </div>
+
+            <!-- Step Indicator -->
+            <div class="step-indicator" id="stepIndicator">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span>Choose Path</span>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span>Personalize</span>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span>Your Roadmap</span>
+                </div>
+            </div>
+
+            <!-- Section 1: Profession/Skill Selection -->
+            <div class="section active" id="section1">
+                <div class="section-header">
+                    <h2>Choose Your Learning Path</h2>
+                    <p>Select a profession, skill, or create your own custom roadmap</p>
+                </div>
+
+                <div class="path-categories">
+                    <!-- Profession-Based -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>Profession-Based Roadmaps</h3>
+                        </div>
+                        <div class="selection-grid" id="professionGrid"></div>
+                    </div>
+
+                    <!-- Skill-Based -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Skill-Based Roadmaps</h3>
+                        </div>
+                        <div class="selection-grid" id="skillGrid"></div>
+                    </div>
+
+                    <!-- Custom Options -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <i class="fas fa-magic"></i>
+                            <h3>Custom Roadmaps</h3>
+                        </div>
+                        <div class="custom-options">
+                            <button class="custom-btn" id="createOwnBtn">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Create Your Own Roadmap</span>
+                            </button>
+                            <button class="custom-btn" id="skillBlendBtn">
+                                <i class="fas fa-layer-group"></i>
+                                <span>Skill-Based Custom Blend</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-primary" id="nextToPersonalize" disabled>
+                        Continue to Personalization <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 2: Personalization Inputs -->
+            <div class="section" id="section2">
+                <div class="section-header">
+                    <h2>Personalize Your Journey</h2>
+                    <p>Help us tailor the perfect roadmap for you</p>
+                </div>
+
+                <div class="personalization-cards">
+                    <div class="input-card">
+                        <label><i class="fas fa-signal"></i> Current Level</label>
+                        <div class="option-buttons" id="levelOptions">
+                            <button class="option-btn" data-value="beginner">Beginner</button>
+                            <button class="option-btn" data-value="intermediate">Intermediate</button>
+                            <button class="option-btn" data-value="advanced">Advanced</button>
+                        </div>
+                    </div>
+
+                    <div class="input-card">
+                        <label><i class="fas fa-clock"></i> Weekly Time Availability</label>
+                        <div class="option-buttons" id="timeOptions">
+                            <button class="option-btn" data-value="<5">&lt;5 hrs/week</button>
+                            <button class="option-btn" data-value="5-10">5-10 hrs/week</button>
+                            <button class="option-btn" data-value="10+">10+ hrs/week</button>
+                        </div>
+                    </div>
+
+                    <div class="input-card">
+                        <label><i class="fas fa-calendar-alt"></i> Target Timeline</label>
+                        <div class="option-buttons" id="timelineOptions">
+                            <button class="option-btn" data-value="3">3 months</button>
+                            <button class="option-btn" data-value="6">6 months</button>
+                            <button class="option-btn" data-value="12">1 year</button>
+                        </div>
+                    </div>
+
+                    <div class="input-card">
+                        <label><i class="fas fa-user-graduate"></i> Experience Level</label>
+                        <div class="option-buttons" id="experienceOptions">
+                            <button class="option-btn" data-value="student">Student</button>
+                            <button class="option-btn" data-value="intern">Intern</button>
+                            <button class="option-btn" data-value="professional">Working Professional</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-secondary" id="backToSelection">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-primary" id="generateRoadmap" disabled>
+                        Generate My Roadmap <i class="fas fa-rocket"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 3: Generated Roadmap -->
+            <div class="section" id="section3">
+                <div class="roadmap-header">
+                    <div class="roadmap-title">
+                        <h2 id="roadmapTitle">Your Learning Roadmap</h2>
+                        <p id="roadmapSubtitle"></p>
+                    </div>
+                    <div class="roadmap-actions">
+                        <button class="btn-icon" id="saveRoadmap" title="Save Roadmap">
+                            <i class="fas fa-save"></i>
+                        </button>
+                        <button class="btn-icon" id="modifyRoadmap" title="Modify">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" id="regenerateRoadmap" title="Regenerate">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Overview -->
+                <div class="progress-overview">
+                    <div class="progress-stat">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong id="totalDuration">0 months</strong>
+                            <span>Total Duration</span>
+                        </div>
+                    </div>
+                    <div class="progress-stat">
+                        <i class="fas fa-tasks"></i>
+                        <div>
+                            <strong id="totalTasks">0</strong>
+                            <span>Learning Tasks</span>
+                        </div>
+                    </div>
+                    <div class="progress-stat">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <strong id="completionRate">0%</strong>
+                            <span>Completed</span>
+                        </div>
+                    </div>
+                    <div class="progress-stat">
+                        <i class="fas fa-trophy"></i>
+                        <div>
+                            <strong id="readinessScore">0%</strong>
+                            <span>Industry Ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overall Progress Bar -->
+                <div class="overall-progress">
+                    <div class="progress-label">
+                        <span>Overall Progress</span>
+                        <span id="progressPercentage">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progressBarFill"></div>
+                    </div>
+                </div>
+
+                <!-- Roadmap Phases -->
+                <div class="roadmap-timeline" id="roadmapTimeline">
+                    <!-- Phases will be dynamically generated -->
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-secondary" id="startOver">
+                        <i class="fas fa-redo"></i> Start Over
+                    </button>
+                    <button class="btn btn-primary" id="downloadRoadmap">
+                        <i class="fas fa-download"></i> Download Roadmap
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SkillBridge AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="security.js"></script>
+    <script src="Roadmap.js"></script>
+</body>
+</html>

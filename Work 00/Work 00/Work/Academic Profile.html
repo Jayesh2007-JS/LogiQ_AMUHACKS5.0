@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+    <title>Academic Profile Analysis - SkillBridge AI</title>
+    <link rel="stylesheet" href="Academic Profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .top-nav-bar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-nav-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .top-nav-bar .back-link {
+            color: #667eea;
+        }
+        .top-nav-bar .home-link {
+            color: #6b7280;
+        }
+        .top-nav-bar a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav-bar">
+        <a href="skillbridge-homepage.html" class="logo-link" style="text-decoration: none; color: #667eea; font-weight: 700; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-graduation-cap"></i>
+            <span>SkillBridge-AI</span>
+        </a>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="features.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Features</span>
+            </a>
+            <a href="skillbridge-homepage.html" class="home-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Academic Profile Analysis</h1>
+            <p>Let's understand your current standing and map your career journey</p>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Step 1 of 4</div>
+        </div>
+
+        <!-- Main Form Section -->
+        <div class="form-section" id="formSection">
+            <form id="academicForm">
+                <!-- Step 1: Skills Learned -->
+                <div class="form-step active" data-step="1">
+                    <h2>What skills have you learned?</h2>
+                    <p class="step-description">Select all that apply. Don't worry if you're just starting out!</p>
+                    
+                    <div class="skills-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-grid">
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="C">
+                                <span><i class="fas fa-code" style="color: #A8B9CC;"></i> C</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="C++">
+                                <span><i class="fas fa-code" style="color: #00599C;"></i> C++</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Java">
+                                <span><i class="fab fa-java" style="color: #007396;"></i> Java</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Python">
+                                <span><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="JavaScript">
+                                <span><i class="fab fa-js" style="color: #F7DF1E;"></i> JavaScript</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Data Structures & Algorithms">
+                                <span><i class="fas fa-project-diagram" style="color: #667eea;"></i> Data Structures & Algorithms</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Web Development">
+                                <span><i class="fas fa-globe" style="color: #61DAFB;"></i> Web Development</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Database Management">
+                                <span><i class="fas fa-database" style="color: #4479A1;"></i> Database Management</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Machine Learning / AI">
+                                <span><i class="fas fa-brain" style="color: #FF6F00;"></i> Machine Learning / AI</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Cloud Computing">
+                                <span><i class="fas fa-cloud" style="color: #FF9900;"></i> Cloud Computing</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3>Management Skills</h3>
+                        <div class="skills-grid">
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Communication Skills">
+                                <span><i class="fas fa-comments" style="color: #10B981;"></i> Communication Skills</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Leadership">
+                                <span><i class="fas fa-user-tie" style="color: #8B5CF6;"></i> Leadership</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Project Management">
+                                <span><i class="fas fa-tasks" style="color: #3B82F6;"></i> Project Management</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Team Collaboration">
+                                <span><i class="fas fa-users" style="color: #EC4899;"></i> Team Collaboration</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Problem Solving">
+                                <span><i class="fas fa-lightbulb" style="color: #F59E0B;"></i> Problem Solving</span>
+                            </label>
+                            <label class="skill-tag">
+                                <input type="checkbox" name="skills" value="Time Management">
+                                <span><i class="fas fa-clock" style="color: #EF4444;"></i> Time Management</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3>Add Your Own Skills</h3>
+                        <p class="step-description" style="margin-bottom: 16px; font-size: 0.9rem;">Have other skills not listed above? Add them here!</p>
+                        <div class="custom-skill-input">
+                            <input type="text" id="customSkillInput" placeholder="e.g., React, Docker, Public Speaking...">
+                            <button type="button" id="addSkillBtn" class="btn-add-skill">Add Skill</button>
+                        </div>
+                        <div class="custom-skills-container" id="customSkillsContainer"></div>
+                    </div>
+
+                    <div class="selected-count" id="selectedCount">0 skills selected</div>
+                </div>
+
+                <!-- Step 2: Age -->
+                <div class="form-step" data-step="2">
+                    <h2>How old are you?</h2>
+                    <p class="step-description">This helps us provide age-appropriate career guidance</p>
+                    
+                    <div class="input-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="17" max="30" required>
+                        <span class="input-help">Typical student age: 17-25</span>
+                    </div>
+                </div>
+
+                <!-- Step 3: Academic Year -->
+                <div class="form-step" data-step="3">
+                    <h2>Which year are you currently in?</h2>
+                    <p class="step-description">Your academic year helps us understand your learning journey</p>
+                    
+                    <div class="input-group">
+                        <label for="academicYear">Current Academic Year</label>
+                        <select id="academicYear" name="academicYear" required>
+                            <option value="">Select your year</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 4: CGPA -->
+                <div class="form-step" data-step="4">
+                    <h2>What's your current CGPA?</h2>
+                    <p class="step-description">You may skip this if you are in your 1st semester</p>
+                    
+                    <div class="input-group">
+                        <label for="cgpa">CGPA (Out of 10)</label>
+                        <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01">
+                        <span class="input-help">Optional - Leave blank if not applicable</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Previous</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Analyze Profile</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Results Section (Hidden Initially) -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="score-card">
+                <div class="score-circle">
+                    <svg width="200" height="200" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="#e5e7eb" stroke-width="12"/>
+                        <circle id="scoreCircle" cx="100" cy="100" r="90" fill="none" stroke="url(#gradient)" stroke-width="12" stroke-linecap="round" transform="rotate(-90 100 100)"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="score-text">
+                        <div class="score-number" id="scoreNumber">0</div>
+                        <div class="score-label">/ 100</div>
+                    </div>
+                </div>
+                <h2>Your Career Readiness Score</h2>
+                <div class="readiness-level" id="readinessLevel">Calculating...</div>
+            </div>
+
+            <div class="feedback-section">
+                <div class="feedback-card strength-card">
+                    <h3>✨ What You're Doing Well</h3>
+                    <div id="strengthsFeedback"></div>
+                </div>
+
+                <div class="feedback-card gap-card">
+                    <h3>🎯 Areas to Improve</h3>
+                    <div id="gapsFeedback"></div>
+                </div>
+
+                <div class="feedback-card recommendation-card">
+                    <h3>📚 Recommended Skills to Learn</h3>
+                    <div id="recommendationsFeedback"></div>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary" id="retakeBtn">Retake Analysis</button>
+        </div>
+
+        <!-- Disclaimer -->
+        <footer class="disclaimer">
+            <p>This analysis is designed for technical and management students and provides indicative career readiness insights.</p>
+        </footer>
+    </div>
+
+    <script src="security.js"></script>
+    <script src="Academic Profile.js"></script>
+</body>
+</html>
